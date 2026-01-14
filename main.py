@@ -22,14 +22,6 @@ try:
     from src import analysis
 except ImportError as e:
     print(f"CRITICAL ERROR: Could not import source modules. {e}")
-    print("Ensure your folder structure looks like this:")
-    print("  /market-sentiment")
-    print("    /src")
-    print("      collection.py")
-    print("      processing.py")
-    print("      analysis.py")
-    print("    main.py")
-    sys.exit(1)
 
 
 def setup_root_logging():
@@ -44,6 +36,7 @@ def setup_root_logging():
 def run_pipeline():
     """Runs the three stages of the pipeline in order."""
 
+    Path("logs").mkdir(parents=True, exist_ok=True)
     setup_root_logging()
     logging.info("=" * 80)
     logging.info("🚀 STARTING MARKET SENTIMENT PIPELINE")
