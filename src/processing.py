@@ -34,8 +34,8 @@ def setup_logging():
         level=logging.INFO,
         format="%(asctime)s | %(levelname)s | %(message)s",
         handlers=[
-            logging.FileHandler("logs/processing.log"),  # Saves to file
-            logging.StreamHandler(),  # logging.s to screen
+            logging.FileHandler("logs/processing.log"),
+            logging.StreamHandler(),
         ],
     )
 
@@ -194,7 +194,7 @@ def main():
                     date, count = future.result()
                     results.append((date, count))
                 except Exception as e:
-                    logging.(f"\nError: {e}")
+                    logging.error(f"\nError: {e}")
                 pbar.update(1)
 
     logging.info(f"\n{'='*70}")
