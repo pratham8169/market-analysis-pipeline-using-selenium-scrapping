@@ -68,7 +68,7 @@ Scraping X (Twitter) introduces several practical challenges:
 * Used time-based search slicing (`since` / `until`) to retrieve older tweets without deep scrolling
 * Added randomized delays and retry logic to reduce detection risk
 
-These techniques helped maintain stable data collection while staying within the assignment constraints.
+These techniques helped maintain stable data collection .
 
 ---
 
@@ -100,20 +100,48 @@ repo/
 
 * Python 3.11+
 * Google Chrome (latest version)
+* Windows OS (tested)
 
-### Install Dependencies
+---
+
+## One-Time Browser Setup (Required for Scraping)
+
+Due to X (Twitter) login and bot-detection restrictions, Chrome must be started once in **remote debugging mode**.
+This allows Selenium to attach to an existing authenticated browser session.
+
+### Step 1: Open Chrome in Debug Mode (PowerShell)
+
+Run the following command in **PowerShell**:
+
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" `
+  --remote-debugging-port=9222 `
+  --user-data-dir="C:\chrome-debug-profile"
+```
+
+* Log in to X (Twitter) in the opened Chrome window
+* Keep this window open while running the scraper
+* This is a **one-time setup** unless the Chrome profile is deleted
+
+---
+
+### Step 2: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Full Pipeline
+---
+
+### Step 3: Run Full Pipeline
 
 ```bash
 python main.py
 ```
 
-### Run Individual Modules
+---
+
+### Optional: Run Individual Modules
 
 ```bash
 python src/collection.py     # Data collection
@@ -133,7 +161,7 @@ python src/analysis.py       # Sentiment analysis
   * Semantic sentiment
   * Final combined signal
 
-Sample outputs are available in the `samples/` directory.
+Sample outputs are available in the `sample/` directory.
 
 ---
 
@@ -160,5 +188,3 @@ For larger workloads:
 
 * Built as part of a technical assessment
 * Intended for research and analysis purposes only
-
-
