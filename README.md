@@ -1,4 +1,3 @@
-
 # Indian Market Sentiment Analyzer (Twitter/X)
 
 This project is a Python-based system that collects and analyzes Indian stock market discussions from X (Twitter) and converts them into a quantitative sentiment signal.
@@ -162,6 +161,34 @@ python src/analysis.py       # Sentiment analysis
   * Final combined signal
 
 Sample outputs are available in the `sample/` directory.
+
+---
+
+## How to Read the Output
+
+The final output is a time-series sentiment signal intended for market analysis.
+
+* **X-axis:** Time (derived from tweet timestamps)
+* **Y-axis:** Normalized sentiment score (`-1.0` to `+1.0`)
+
+### Signal Interpretation
+
+* **Positive values (> 0):** Bullish market sentiment
+* **Negative values (< 0):** Bearish market sentiment
+* **Values near 0:** Neutral or mixed sentiment
+
+### Line Breakdown
+
+* **Keyword Sentiment:**
+  Reflects sentiment from explicit market and financial terms
+
+* **Semantic Sentiment (TF-IDF):**
+  Captures overall contextual mood from tweet text
+
+* **Final Combined Signal:**
+  Weighted aggregation of all sentiment components used for analysis
+
+Periods with low confidence (based on bootstrapped confidence intervals) can be ignored to reduce noise.
 
 ---
 
