@@ -26,7 +26,7 @@ The output is a **time-series sentiment signal ranging from -1.0 to +1.0**.
 ### Data Collection
 
 * Scrapes tweets related to Indian markets (`#nifty50`, `#sensex`, `#banknifty`, `#intraday`)
-* Uses Selenium (no paid APIs)
+* Uses Selenium
 * Extracts username, timestamp, tweet text, hashtags, mentions, and engagement metrics
 
 ### Data Processing & Storage
