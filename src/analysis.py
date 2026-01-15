@@ -1,5 +1,5 @@
 """
-Market Sentiment Signal Generation (Hybrid Approach).
+Market Sentiment Signal Generation .
 
 This module implements:
 1. Keyword Analysis: Using a Multilingual Lexicon (English/Hindi/Hinglish).
@@ -324,3 +324,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
