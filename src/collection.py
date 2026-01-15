@@ -394,7 +394,7 @@ def main():
     """Main function to execute the scraper."""
     setup_logging()
     log("=" * 80)
-    log("SCRAPER STARTED")
+    log("SCRAPER STARTED For X")
     log(
         f"Target: {TARGET} tweets | Queries: {len(QUERY_POOL)} | Time windows: {len(TIME_WINDOWS)}"
     )
