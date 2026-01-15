@@ -238,7 +238,7 @@ def main():
         .reset_index()
     )
 
-    # Optional: Filter out hours with 0 tweets to avoid bootstrap errors
+    # Filter out hours with 0 tweets to avoid bootstrap errors
     hourly = hourly[hourly["combined_signal"].map(len) > 0]
 
     records = []
@@ -324,4 +324,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
