@@ -6,8 +6,6 @@ This script executes the full end-to-end pipeline:
 2. Data Processing (Cleaning & Parquet Conversion)
 3. Signal Analysis (Hybrid Sentiment & Visualization)
 
-Usage:
-    python main.py
 """
 
 import sys
@@ -25,7 +23,7 @@ except ImportError as e:
 
 
 def setup_root_logging():
-    """Configures global logging for the orchestrator."""
+    """Configures global logging."""
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s | MAIN     | %(message)s",
@@ -46,7 +44,7 @@ def run_pipeline():
     logging.info("\n>>> STEP 1: DATA COLLECTION (Scraping)")
     logging.info("Initializing The Scraper...")
     try:
-        # Note: This runs until the target is reached or user presses Ctrl+C
+        # This runs until the target is reached or user presses Ctrl+C
         collection.main()
     except KeyboardInterrupt:
         logging.warning("Scraping interrupted by user. Proceeding to processing...")
@@ -71,12 +69,13 @@ def run_pipeline():
         sys.exit(1)
 
     logging.info("\n" + "=" * 80)
-    logging.info("✅ PIPELINE COMPLETE")
-    logging.info("   - Raw Data:      data/raw/")
-    logging.info("   - Clean Data:    data/processed_parquet/")
-    logging.info("   - Final Output:  data/signals/signals.png")
+    logging.info("PIPELINE COMPLETE")
+    logging.info("Raw Data: data/raw/")
+    logging.info("Clean Data: data/processed_parquet/")
+    logging.info("Final Output: data/signals/")
     logging.info("=" * 80)
 
 
 if __name__ == "__main__":
     run_pipeline()
+
