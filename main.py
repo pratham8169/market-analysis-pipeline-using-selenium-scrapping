@@ -44,7 +44,7 @@ def run_pipeline():
 
     # --- STEP 1: DATA COLLECTION ---
     logging.info("\n>>> STEP 1: DATA COLLECTION (Scraping)")
-    logging.info("Initializing Stealth Scraper...")
+    logging.info("Initializing The Scraper...")
     try:
         # Note: This runs until the target is reached or user presses Ctrl+C
         collection.main()
