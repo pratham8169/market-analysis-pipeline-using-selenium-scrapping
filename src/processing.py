@@ -20,7 +20,7 @@ from tqdm import tqdm
 import logging
 
 
-INPUT_CSV = "data/raw/tweets_combined.csv"
+INPUT_CSV = "data/raw/Extracted_Scrapped_Data.csv"
 OUTPUT_DIR = Path("data/processed_parquet")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 MAX_WORKERS = 4
@@ -128,7 +128,12 @@ def main():
     logging.info("Data Processing Pipeline Started")
 
     try:
-        df = pd.read_csv(INPUT_CSV, encoding="utf-8")
+        df = pd.read_csv(
+            INPUT_CSV,
+            encoding="utf-8",
+            encoding_errors="replace",
+            dtype={"tweet_id": str},
+        )
         logging.info(f"\n[1/6] Loaded {len(df)} rows")
     except FileNotFoundError:
         logging.error(f"ERROR: {INPUT_CSV} not found. Run scraper first.")
@@ -142,8 +147,6 @@ def main():
     logging.info("[3/6] Filtering last 24h...")
     df["ts_dt"] = df["timestamp_utc"].apply(parse_timestamp)
     df = df[df["ts_dt"].notna()]
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
-    df = df[df["ts_dt"] >= cutoff]
     logging.info(f"    Valid: {len(df)} tweets")
 
     logging.info("[4/6] Extracting hashtags/mentions...")
