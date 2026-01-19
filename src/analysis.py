@@ -100,7 +100,7 @@ def setup_logging():
 
 
 def tokenize(text: str) -> set:
-    """Tokenizes a text string into a set of words."""
+    """Tokenizes a text string into a set of words. Not used Just for my understanding"""
     if not text:
         return set()
     return {t.strip(".,!?:;()[]{}\"'").lower() for t in text.split() if len(t) > 1}
@@ -325,6 +325,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
