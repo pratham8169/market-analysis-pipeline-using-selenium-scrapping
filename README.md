@@ -57,8 +57,6 @@ Scraping X (Twitter) introduces several practical challenges:
 * **Dynamic content loading:**
   Tweets load asynchronously, requiring careful wait conditions and defensive error handling.
 
-* **No API access:**
-  The assignment constraint of not using paid APIs required handling all data collection through browser automation.
 
 ### Approach Used
 
@@ -194,7 +192,7 @@ Periods with low confidence (based on bootstrapped confidence intervals) can be 
 
 ## Design Decisions (Brief)
 
-* Selenium used to comply with the “no paid API” requirement
+* Selenium used to Scrap the tweets with techniques to overcome rate limiting and bot detection
 * Query rotation and time slicing implemented to handle rate limits and scrolling constraints
 * Parquet chosen for efficient storage and scalability
 * Custom sentiment logic added to support Indian market language
