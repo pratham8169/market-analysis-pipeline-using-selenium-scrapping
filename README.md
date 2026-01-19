@@ -192,7 +192,7 @@ Periods with low confidence (based on bootstrapped confidence intervals) can be 
 
 ## Design Decisions (Brief)
 
-* Selenium used to Scrap the tweets with techniques to overcome rate limiting and bot detection
+* Selenium used to scrape dynamically loaded tweets without API dependency 
 * Query rotation and time slicing implemented to handle rate limits and scrolling constraints
 * Parquet chosen for efficient storage and scalability
 * Custom sentiment logic added to support Indian market language
