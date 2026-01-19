@@ -194,6 +194,7 @@ def bootstrap_ci(values: np.ndarray, n=1000, alpha=0.05):
 
 def main():
     """Main function to generate market sentiment signals."""
+    setup_logging()
     logging.info("=" * 60)
     logging.info("Signal Generation Pipeline")
     logging.info("=" * 60)
@@ -324,5 +325,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
